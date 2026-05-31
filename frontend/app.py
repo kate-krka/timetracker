@@ -2,13 +2,25 @@ import streamlit as st
 import requests
 import pandas as pd
 
+@st.cache_data(ttl=300)
+def load_data():
+
+    response = requests.get(
+        "http://127.0.0.1:8000/activities/"
+    )
+
+    return response.json()
+
+
+st.set_page_config(page_title="TimeTrack Analytics", layout="wide")
 st.title("TimeTrack Analytics")
 
 try:
     # 1️⃣ Получаем данные с backend
-    response = requests.get("http://127.0.0.1:8000/activities/")
-    data = response.json()
+    data = load_data()
     df = pd.DataFrame(data)
+
+
 
     # 2️⃣ Переименуем колонки и преобразуем timestamp
     df = df.rename(columns={"Дата/Время": "timestamp", "Активность": "category"})
@@ -22,6 +34,7 @@ try:
     # -------------------------------
 
     # добавляем часы
+    filtered_df = filtered_df.copy()
     filtered_df["hours"] = 0.25
 
     # суммируем по категориям
