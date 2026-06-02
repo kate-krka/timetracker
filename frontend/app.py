@@ -204,7 +204,7 @@ try:
     # в 3 колонки: левая (30%), пустой зазор (10% ширины) и правая (50%)
     col_top, col_spacer, col_prod = st.columns([3, 1, 5])
 
-    # Лелевая колонка: ТОП КАТЕГОРИЙ
+    # Левая колонка: ТОП КАТЕГОРИЙ
     with col_top:
         st.subheader("Топ-5 категорий")
 
@@ -238,9 +238,9 @@ try:
 
 
 
-    # Центральную колонку пустой
+    # среднюю колонку пустой
 
-    # Правая колонка: РАСПРЕДЕЛЕНИЕ ПРОДУКТИВНОСТИ
+    # правая: РАСПРЕДЕЛЕНИЕ ПРОДУКТИВНОСТИ
     with col_prod:
         st.subheader("Распределение продуктивности")
 
@@ -275,15 +275,13 @@ try:
 
         productive_df["week"] = (
             productive_df["timestamp"]
-            .dt.to_period("W")
-            .astype(str)
+            .dt.to_period("W").astype(str)
         )
 
         weekly_productive = (
             productive_df
             .groupby("week")["hours"]
-            .sum()
-            .reset_index()
+            .sum().reset_index()
         )
 
         st.line_chart(
@@ -291,11 +289,7 @@ try:
         )
 
     else:
-        st.info(
-            "Нет продуктивных активностей за выбранный период."
-        )
+        st.info("Нет продуктивных активностей за выбранный период")
 
 except Exception as e:
-    st.error(
-        f"Не удалось загрузить данные: {e}"
-    )
+    st.error(f"Не удалось загрузить данные: {e}")

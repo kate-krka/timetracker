@@ -22,6 +22,6 @@
 
 uvicorn backend.main:app --reload
 
-## Запуск frontend
+## Запуск frontend   
 
 streamlit run frontend/app.py
