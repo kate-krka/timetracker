@@ -26,5 +26,6 @@ __pycache__/
 # Environment variables
 .env
 
+
 # Jupyter
 .ipynb_checkpoints/
