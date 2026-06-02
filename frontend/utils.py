@@ -17,7 +17,8 @@ def load_data():
     df = df.rename(
         columns={
             "Дата/Время": "timestamp",
-            "Активность": "category"
+            "Активность": "category",
+            "Продуктивность": "productivity"
         }
     )
 

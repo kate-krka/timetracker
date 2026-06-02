@@ -5,10 +5,11 @@
 ## Стек
 
 - Python
+- Pandas
 - FastAPI
 - Streamlit
 - Google Sheets API
-- Pandas
+
 
 ## Возможности
 
