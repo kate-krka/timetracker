@@ -11,7 +11,7 @@ logging.basicConfig(
 
 app = FastAPI(title="TimeTrack Analytics API")
 
-# подключаем роутеры
+# подключить роутеры
 app.include_router(activities.router)
 
 @app.get("/")
