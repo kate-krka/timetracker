@@ -20,7 +20,7 @@
 
 
 ## Запуск через Docker
-1. Выполните команду в корне проекта: `docker-compose up --build`
+1. Выполните команду в корне проекта: `docker-compose up -d --build`
 2. Откройте в браузере: http://localhost:8501
 
 

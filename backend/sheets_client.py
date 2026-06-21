@@ -2,7 +2,8 @@ import gspread
 from google.oauth2.service_account import Credentials
 import pandas as pd
 import logging
-
+import os
+import sys
 
 
 # путь к JSON-файлу с ключом
@@ -51,3 +52,12 @@ def fetch_data():
 
     return df.to_dict(orient="records")
 
+
+
+
+json_path = "backend/timetracker-488519-2358658be50a.json"
+
+if not os.path.exists(json_path):
+    print(f"ERROR: Secret key file not found at {json_path}!")
+    print("Please place your Google Service Account JSON file in the backend/ folder.")
+    sys.exit(1) # завершить процесс, объяснив причину
