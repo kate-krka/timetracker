@@ -9,7 +9,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("🏠 TimeTracker Analytics")
+st.title("TimeTracker Analytics")
 st.divider()
 
 try:
