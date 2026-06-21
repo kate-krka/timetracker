@@ -7,7 +7,7 @@ import streamlit as st
 def load_data():
 
     response = requests.get(
-        "http://127.0.0.1:8000/activities/")
+        "http://backend:8000/activities/")
 
     data = response.json()
 
