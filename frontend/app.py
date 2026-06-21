@@ -44,7 +44,7 @@ try:
     
 
 
-    # вводим переменные для границ дат
+    #  переменные для границ дат
     start_date = df["timestamp"].min().date()
     end_date = df["timestamp"].max().date()
     
@@ -53,7 +53,7 @@ try:
         end_date = today
         
     elif selected_period == "Прошлый месяц":
-        # вычислить последний день предыдущего месяца
+        #вычислить последний день предыдущего месяца
         first_day_this_month = today.replace(day=1)
         last_day_last_month = first_day_this_month - pd.Timedelta(days=1)
         start_date = last_day_last_month.replace(day=1)
@@ -64,7 +64,7 @@ try:
         end_date = today
         
     elif selected_period == "Свой период":
-        # если выбран "Свой период", показать привычные инпуты для дат
+        # если выбран "Свой период", показать даты мин макс
         col1, col2 = st.columns(2)
         with col1:
             start_date = st.date_input("С", value=df["timestamp"].min().date())
